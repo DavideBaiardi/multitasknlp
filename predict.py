@@ -30,6 +30,7 @@ def get_all_splits(args, new_vocab):
         splits.append(s)
     return splits
 
+# new update on prepare function
 
 def prepare_data(args, FIELD):
     new_vocab = torchtext.data.ReversibleField(batch_first=True, init_token='<init>', eos_token='<eos>', lower=args.lower, include_lengths=True)
@@ -50,6 +51,7 @@ def prepare_data(args, FIELD):
 
     return FIELD, splits
 
+# to_iter function is for iterate
 
 def to_iter(data, bs, device):
     Iterator = torchtext.data.Iterator
