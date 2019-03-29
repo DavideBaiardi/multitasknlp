@@ -13,8 +13,7 @@ from util import get_splits, set_seed, preprocess_examples
 from metrics import compute_metrics
 import models
 
-# new things need to update
-# new changes
+# get exisiting splits
 def get_all_splits(args, new_vocab):
     splits = []
     for task in args.tasks:
@@ -63,7 +62,7 @@ def to_iter(data, bs, device):
 
     return it
 
-
+# latest running function
 def run(args, field, val_sets, model):
     device = set_seed(args)
     print(f'Preparing iterators')
