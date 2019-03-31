@@ -23,8 +23,8 @@ def get_all_splits(args, new_vocab):
             kwargs['train'] =  None
         if not 'valid' in  args.evaluate:
             kwargs['validation'] =  None
-        if not 'test' in args.evaluate:
-            kwargs['test'] =  None
+        # if not 'test' in args.evaluate:
+        #     kwargs['test'] =  None
         s = get_splits(args, task, new_vocab, **kwargs)[0]
         preprocess_examples(args, [task], [s], new_vocab, train=False)
         splits.append(s)
@@ -40,6 +40,7 @@ def prepare_data(args, FIELD):
     args.max_generative_vocab = min(len(FIELD.vocab), args.max_generative_vocab)
     FIELD.append_vocab(new_vocab)
     print(f'Vocabulary has expanded to {len(FIELD.vocab)} tokens')
+# new update
 
     char_vectors = torchtext.vocab.CharNGram(cache=args.embeddings)
     glove_vectors = torchtext.vocab.GloVe(cache=args.embeddings)
