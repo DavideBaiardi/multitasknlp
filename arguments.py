@@ -75,9 +75,10 @@ def parse():
     parser.add_argument('--optimizer', default='adam', type=str, help='Adam or SGD')
     parser.add_argument('--no_transformer_lr', action='store_false', dest='transformer_lr', help='turns off the transformer learning rate strategy') 
     parser.add_argument('--sgd_lr', default=1.0, type=float, help='learning rate for SGD (if not using Adam)')
+    parser.add_argument('--sgd_lr', default=1.0, type=float, help='learning rate for SGD (if not using Adams)')
 
-    parser.add_argument('--load', default=None, type=str, help='path to checkpoint to load model from inside args.save')
-    parser.add_argument('--resume', action='store_true', help='whether to resume training with past optimizers')
+    # parser.add_argument('--load', default=None, type=str, help='path to checkpoint to load model from inside args.save')
+    # parser.add_argument('--resume', action='store_true', help='whether to resume training with past optimizers')
 
     parser.add_argument('--seed', default=123, type=int, help='Random seed.')
     parser.add_argument('--devices', default=[0], nargs='+', type=int, help='a list of devices that can be used for training (multi-gpu currently WIP)')
