@@ -30,6 +30,20 @@ def get_all_splits(args, new_vocab):
         splits.append(s)
     return splits
 
+    for task in args.tasks:
+        print(f'Loading {task}')
+        kwargs = {}
+        if not 'train' in args.evaluate:
+            kwargs['train'] =  None
+        if not 'valid' in  args.evaluate:
+            kwargs['validation'] =  None
+        # if not 'test' in args.evaluate:
+        #     kwargs['test'] =  None
+        s = get_splits(args, task, new_vocab, **kwargs)[0]
+        preprocess_examples(args, [task], [s], new_vocab, train=False)
+        splits.append(s)
+    return splits
+
 # new update on prepare function
 
 def prepare_data(args, FIELD):
