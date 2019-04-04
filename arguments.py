@@ -42,6 +42,14 @@ def parse():
     parser.add_argument('--log_every', default=int(1e2), type=int, help='how often to log results in # of iterations')
     parser.add_argument('--save_every', default=int(1e3), type=int, help='how often to save a checkpoint in # of iterations')
 
+    parser.add_argument('--no_tensorboard', action='store_false', dest='tensorboard', help='Turn of tensorboard logging') 
+    parser.add_argument('--log_every', default=int(1e2), type=int, help='how often to log results in # of iterations')
+    parser.add_argument('--save_every', default=int(1e3), type=int, help='how often to save a checkpoint in # of iterations')
+    
+    parser.add_argument('--no_tensorboard', action='store_false', dest='tensorboard', help='Turn of tensorboard logging') 
+    parser.add_argument('--log_every', default=int(1e2), type=int, help='how often to log results in # of iterations')
+    parser.add_argument('--save_every', default=int(1e3), type=int, help='how often to save a checkpoint in # of iterations')
+
     parser.add_argument('--val_tasks', nargs='+', type=str, help='tasks to collect evaluation metrics for')
     parser.add_argument('--val_every', default=int(1e3), type=int, help='how often to run validation in # of iterations')
     parser.add_argument('--val_no_filter', action='store_false', dest='val_filter', help='whether to allow filtering on the validation sets')
