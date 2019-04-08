@@ -31,13 +31,19 @@ def preprocess_examples(args, tasks, splits, field, logger=None, train=True):
             s.examples = [ex for ex in s.examples if not is_too_long(ex)]
             if len(s.examples) < l:
                 if logger is not None:
-                    logger.info(f'Filtering out long {task} examples: {l} -> {len(s.examples)}')
+                    # logger.info(f'Filtering out long {task} examples: {l} -> {len(s.examples)}')
     
             l = len(s.examples)
             s.examples = [ex for ex in s.examples if not is_too_short(ex)]
             if len(s.examples) < l:
                 if logger is not None:
                    logger.info(f'Filtering out short {task} examples: {l} -> {len(s.examples)}')
+    
+            l = len(s.examples)
+                    s.examples = [ex for ex in s.examples if not is_too_short(ex)]
+                    if len(s.examples) < l:
+                        if logger is not None:
+                        logger.info(f'Filtering out short {task} examples: {l} -> {len(s.examples)}')
     
             l = len(s.examples)
             s.examples = [ex for ex in s.examples if 'This page includes the show' not in ex.answer]
