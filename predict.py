@@ -19,11 +19,7 @@ def get_all_splits(args, new_vocab):
     for task in args.tasks:
         print(f'Loading {task}')
         kwargs = {}
-        if not 'train' in args.evaluate:
-            kwargs['train'] =  None
-            if not 'train' in args.evaluate:
-            kwargs['train'] =  None
-        if not 'valid' in  args.evaluate:
+        
             kwargs['validation'] =  None
         # if not 'test' in args.evaluate:
         #     kwargs['test'] =  None
