@@ -118,7 +118,8 @@ def computeLFEM(greedy, answer, args):
             continue
     return correct / count * 100, text_answers
 
-
+ aggs = [y.lower() for y in Query.agg_ops]
+    agg_to_idx = {x: i for i, x in enumerate(aggs)}
 def score(answer, gold):
     if len(gold) > 0:
         gold = set.union(*[simplify(g) for g in gold])
